@@ -1,0 +1,300 @@
+---
+import '../styles/global.css';
+import { profile } from '../content/profile';
+const { services, assignments } = profile;
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#17263a" />
+  <meta name="description" content={profile.seo.description} />
+  <link rel="canonical" href="https://glensha.org/" />
+  <title>{profile.seo.title}</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={profile.seo.ogTitle} />
+  <meta property="og:description" content={profile.seo.ogDescription} />
+  <meta property="og:url" content="https://glensha.org/" />
+
+  <!-- Google Fonts: Newsreader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Glen Sha',
+    url: 'https://glensha.org/',
+    jobTitle: 'Mandarin–English Interpreter, Translator & Language Educator',
+    email: `mailto:${profile.contact.email}`,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Fremont',
+      addressRegion: 'CA',
+      addressCountry: 'US'
+    },
+    alumniOf: [
+      {
+        '@type': 'EducationalOrganization',
+        name: 'California State University, East Bay'
+      }
+    ],
+    knowsLanguage: ['English', 'Mandarin Chinese']
+  })} />
+</head>
+<body class="antialiased bg-[#f9f8f5] text-[#17263a]">
+  <header class="sticky top-0 z-30 border-b border-[#e7e4de] bg-[#f9f8f5]/95 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4 md:px-8">
+      <a href="#top" class="text-lg font-bold tracking-[.08em] text-[#17263a]">GLEN SHA<span class="text-[#aa7d62]">.</span></a>
+      <nav aria-label="Primary navigation" class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold tracking-wide text-[#485565] sm:text-sm">
+        <a class="transition-colors hover:text-[#a07153]" href="#expertise">Expertise</a>
+        <a class="transition-colors hover:text-[#a07153]" href="#teaching">Teaching</a>
+        <a class="transition-colors hover:text-[#a07153]" href="#credentials">Credentials</a>
+        <a class="transition-colors hover:text-[#a07153]" href="#experience">Experience</a>
+        <a class="transition-colors hover:text-[#a07153]" href="#about">About</a>
+        <a class="transition-colors hover:text-[#a07153]" href="#beyond">Beyond Language</a>
+        <a class="transition-colors hover:text-[#a07153]" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero (with subtle graph texture) -->
+    <section class="relative overflow-hidden border-b border-[#e7e4de] bg-paper-texture">
+      <div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-40 h-[450px] w-[450px] rounded-full border-2 border-[#17263a]/35 md:h-[680px] md:w-[680px]"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute right-8 top-10 h-[320px] w-[320px] rounded-full border border-[#a07153]/45 md:h-[500px] md:w-[500px]"></div>
+      
+      <div class="relative mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+        <p class="eyebrow mb-6">{profile.hero.eyebrow}</p>
+        <h1 class="serif max-w-4xl text-6xl leading-[1.04] tracking-tight text-[#18283a] sm:text-7xl md:text-8xl">
+          Clarity across<br /><em class="font-normal text-[#a57458]">languages.</em>
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-[#465464] md:text-xl">{profile.hero.intro}</p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href="#credentials" class="rounded-md bg-[#17263a] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2d435c]">
+            View my credentials <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#contact" class="rounded-md border border-[#b7a99c] px-6 py-3 text-sm font-semibold transition-colors hover:bg-white">
+            Get in touch
+          </a>
+        </div>
+        <div class="mt-16 grid max-w-3xl gap-5 border-t border-[#d8d0c7] pt-6 text-sm text-[#475463] sm:grid-cols-3">
+          <p><strong class="block text-[#17263a]">CHI™-Mandarin</strong> CCHI certified since 2020</p>
+          <p><strong class="block text-[#17263a]">Licensed TCII® Trainer</strong> Initially licensed in 2023</p>
+          <p><strong class="block text-[#17263a]">CCHI Exam SME</strong> Mandarin test development, 2024</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise (Crisp white canvas) -->
+    <section id="expertise" class="bg-white py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <p class="eyebrow">Areas of practice</p>
+        <h2 class="serif mt-3 max-w-2xl text-4xl md:text-5xl">Interpretation & language services</h2>
+        <p class="mt-5 max-w-3xl leading-relaxed text-[#526071]">{profile.expertise.intro}</p>
+        
+        <div class="mt-10 grid gap-4 md:grid-cols-2">
+          {services.map((s, idx) => (
+            <article class={`card ${idx === services.length - 1 && services.length % 2 !== 0 ? 'md:col-span-2' : ''}`}>
+              <span class="eyebrow">{s.num}</span>
+              <h3 class="serif mt-3 text-2xl">{s.name}</h3>
+              <p class="mt-3 leading-relaxed text-[#526071]">{s.text}</p>
+            </article>
+          ))}
+        </div>
+        
+        <div class="mt-6 rounded-xl border-l-4 border-[#b8896b] bg-[#f1ece5] p-6">
+          <h3 class="font-semibold text-[#17263a]">A practical approach to simultaneous interpretation</h3>
+          <p class="mt-2 leading-relaxed text-[#526071]">{profile.expertise.simultaneous}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching (Subtle dot matrix texture) -->
+    <section id="teaching" class="border-y border-[#ded7ca] bg-linen-texture py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <p class="eyebrow">Language education</p>
+        <h2 class="serif mt-3 max-w-3xl text-4xl md:text-5xl">Teaching language. Building understanding.</h2>
+        <p class="mt-5 max-w-3xl leading-relaxed text-[#526071]">{profile.teaching.intro}</p>
+        
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          <article class="card bg-white">
+            <p class="eyebrow">Mandarin Chinese</p>
+            <h3 class="serif mt-3 text-2xl">Mandarin instruction</h3>
+            <p class="mt-3 leading-relaxed text-[#526071]">{profile.teaching.mandarin}</p>
+          </article>
+          <article class="card bg-white">
+            <p class="eyebrow">English</p>
+            <h3 class="serif mt-3 text-2xl">English instruction</h3>
+            <p class="mt-3 leading-relaxed text-[#526071]">{profile.teaching.english}</p>
+          </article>
+          <article class="card bg-white">
+            <p class="eyebrow">Professional education</p>
+            <h3 class="serif mt-3 text-2xl">Interpreter training</h3>
+            <p class="mt-3 leading-relaxed text-[#526071]">{profile.teaching.interpreter}</p>
+          </article>
+        </div>
+        
+        <div class="mt-8 grid gap-6 border-t border-[#d8d0c7] pt-7 md:grid-cols-2">
+          <div>
+            <h3 class="font-bold text-[#17263a]">Educational leadership</h3>
+            <p class="mt-2 leading-relaxed text-[#526071]">{profile.teaching.leadership}</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-[#17263a]">Classroom experience in Taiwan</h3>
+            <p class="mt-2 leading-relaxed text-[#526071]">{profile.teaching.taiwan}</p>
+          </div>
+        </div>
+        
+        <a href={`mailto:${profile.contact.email}?subject=Mandarin%20or%20English%20teaching%20inquiry`} class="link mt-7 inline-block font-semibold">
+          Ask about language lessons ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- Credentials (Warm parchment canvas) -->
+    <section id="credentials" class="bg-white py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <p class="eyebrow">Qualifications</p>
+        <h2 class="serif mt-3 text-4xl md:text-5xl">Credentials & professional development</h2>
+        
+        <div class="mt-10 grid gap-5 lg:grid-cols-3">
+          <!-- Card 1: CHI-Mandarin -->
+          <article class="card">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e9e1d7] text-[#805b43]" aria-hidden="true">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#17263a]">CHI™-Mandarin</h3>
+            <p class="mt-2 text-sm font-semibold text-[#6f503e]">Certified Healthcare Interpreter</p>
+            <p class="mt-3 leading-relaxed text-[#526071]">{profile.credentials.chiDescription}</p>
+            <p class="mt-4 text-sm text-[#526071]">{profile.credentials.chiDates}</p>
+            <a class="link mt-4 inline-block text-sm" href="https://cchicertification.org/certifications/" target="_blank" rel="noopener noreferrer">About CCHI certification ↗</a>
+          </article>
+          
+          <!-- Card 2: Licensed TCII Trainer -->
+          <article class="card">
+            <div class="mb-5 flex h-14 items-center">
+              <img src="/images/licensed-trainer.png" width="96" height="96" alt="Cross-Cultural Communications Licensed Trainer badge" class="h-14 w-auto object-contain object-left" loading="lazy"/>
+            </div>
+            <h3 class="text-xl font-bold text-[#17263a]">Licensed TCII® Trainer</h3>
+            <p class="mt-2 text-sm font-semibold text-[#6f503e]">The Community Interpreter® International</p>
+            <p class="mt-3 leading-relaxed text-[#526071]">{profile.credentials.trainerDescription}</p>
+          </article>
+          
+          <!-- Card 3: CCHI Exam SME -->
+          <article class="card">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e9e1d7] text-[#805b43]" aria-hidden="true">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#17263a]">CCHI Examination SME</h3>
+            <p class="mt-2 text-sm font-semibold text-[#6f503e]">Mandarin Test Development · 2024</p>
+            <p class="mt-3 leading-relaxed text-[#526071]">{profile.credentials.smeDescription}</p>
+          </article>
+        </div>
+        
+        <div class="mt-8 flex flex-wrap items-center gap-5 border-t rule pt-6">
+          <img src="/images/ccc-logo.webp" width="170" height="80" alt="Cross-Cultural Communications — Connecting Us All" class="max-h-14 w-auto max-w-44 object-contain" loading="lazy"/>
+          <p class="max-w-2xl text-sm leading-relaxed text-[#526071]">{profile.credentials.cccNote}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience (Crisp white canvas) -->
+    <section id="experience" class="border-y border-[#e7e4de] bg-paper-texture py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="serif mt-3 text-4xl md:text-5xl">Experience across professional settings</h2>
+        <p class="mt-4 max-w-3xl text-[#526071]">{profile.experience.note}</p>
+        
+        <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {assignments.map(a => (
+            <article class="card">
+              <p class="eyebrow">{a.label}</p>
+              <h3 class="serif mt-3 text-xl">{a.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-[#526071]">{a.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- About (Subtle graph texture) -->
+    <section id="about" class="bg-white py-20 md:py-24">
+      <div class="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-[1fr_1.6fr] md:px-8">
+        <div>
+          <p class="eyebrow">Background</p>
+          <h2 class="serif mt-3 text-4xl md:text-5xl">More than words.</h2>
+        </div>
+        <div class="space-y-5 text-lg leading-relaxed text-[#475463]">
+          <p>{profile.about.p1}</p>
+          <p>{profile.about.p2}</p>
+          <p>{profile.about.p3}</p>
+          <p class="text-sm">{profile.about.scope}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beyond Language (Parchment canvas) -->
+    <section id="beyond" class="border-t border-[#ded7ca] bg-linen-texture py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <p class="eyebrow">Beyond language</p>
+        <h2 class="serif mt-3 max-w-4xl text-4xl md:text-5xl">A lifelong learner. A bridge between worlds.</h2>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-[#475463]">{profile.beyond.intro}</p>
+        
+        <div class="mt-10 grid gap-5 md:grid-cols-2">
+          <article class="card bg-white">
+            <p class="eyebrow">Curiosity in practice</p>
+            <h3 class="serif mt-3 text-2xl">Still learning, always teaching.</h3>
+            <p class="mt-4 leading-relaxed text-[#526071]">{profile.beyond.learning}</p>
+          </article>
+          <article class="card bg-white">
+            <p class="eyebrow">Breadth of perspective</p>
+            <h3 class="serif mt-3 text-2xl">Business experience across cultures.</h3>
+            <p class="mt-4 leading-relaxed text-[#526071]">{profile.beyond.business}</p>
+          </article>
+        </div>
+        
+        <p class="mt-8 max-w-4xl border-l-2 border-[#a07153] pl-5 text-lg italic leading-relaxed text-[#475463]">{profile.beyond.quote}</p>
+      </div>
+    </section>
+
+    <!-- Contact (Focused crisp white canvas) -->
+    <section id="contact" class="border-t border-[#e7e4de] bg-white py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <p class="eyebrow">Professional inquiries</p>
+        <h2 class="serif mt-3 text-4xl md:text-5xl">Let's communicate clearly.</h2>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-[#526071]">{profile.contact.intro}</p>
+        
+        <a class="mt-8 inline-flex rounded-md bg-[#17263a] px-7 py-4 font-semibold text-white transition-colors hover:bg-[#2d435c]" href={`mailto:${profile.contact.email}?subject=Professional%20language%20services%20inquiry`}>
+          Email Glen Sha ↗
+        </a>
+        <p class="mt-4 text-sm text-[#526071]">{profile.contact.email}</p>
+        <p class="mt-8 text-sm text-[#526071]">
+          Affiliated with Beautera Language Services. Corporate inquiries: <a class="link" href="https://beautera.com" target="_blank" rel="noopener noreferrer">beautera.com ↗</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t rule bg-[#17263a] text-white">
+    <div class="mx-auto flex max-w-6xl flex-wrap justify-between gap-3 px-5 py-7 text-sm md:px-8">
+      <span>© {new Date().getFullYear()} Glen Sha. All rights reserved.</span>
+      <span class="text-[#cbd4dc]">Mandarin–English interpretation · Translation · Language teaching · Training</span>
+    </div>
+    <div class="mx-auto max-w-6xl px-5 pb-7 text-xs leading-relaxed text-[#cbd4dc] md:px-8">
+      {profile.footer.trademark}
+    </div>
+  </footer>
+</body>
+</html>

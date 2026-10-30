@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://glensha.org/sitemap-index.xml
