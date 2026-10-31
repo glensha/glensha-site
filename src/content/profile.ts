@@ -50,7 +50,7 @@ export const profile = {
     "quote": "For me, effective interpreting and teaching mean more than finding the right words. They mean understanding the people, the setting, and what matters between the lines."
   },
   "contact": {
-    "email": "glensha@gmail.com",
+    "email": "contact@glensha.org",
     "intro": "For interpreting assignments, translation projects, Mandarin or English lessons, interpreter training, or agency credential requests, please get in touch. I'm based in the San Francisco Bay Area."
   },
   "footer": {
